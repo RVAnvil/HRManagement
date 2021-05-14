@@ -1,23 +1,19 @@
-pipeline {
+pipeline{
     agent any
-    tools { 
-        maven 'maven_3_8_1' 
-        jdk 'JDK_9_0_4' 
+    tools{
+        maven 'maven_3_8_1'
     }
-    stages {
-        stage ('Initialize') {
-            steps {
-                sh '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
-                ''' 
+    stages{
+        stage("Create Folder"){
+            steps{
+                sh "mkdir -p ${env.JOB_NAME}"
             }
         }
-
-        stage ('Build') {
-            steps {
-                echo 'This is a minimal pipeline.'
+        stage("Maven Build"){
+            steps{
+                sh 'mvn clean package'
             }
         }
+  
     }
 }
