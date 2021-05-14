@@ -4,9 +4,9 @@ pipeline{
         maven 'maven_3_8_1'
     }
     stages{
-        stage("Create Folder"){
+        stage("git"){
             steps{
-                sh "mkdir -p ${env.JOB_NAME}"
+                git 'https://github.com/RVAnvil/HRManagement.git'
             }
         }
         stage("Maven Build"){
