@@ -7,10 +7,12 @@ pipeline{
                  git 'https://github.com/RVAnvil/HRManagement.git'
             }
         }
-        stage("Maven Build"){
-            steps{
-                sh "mvn clean package"
-           
+        stage ('Compile Stage') {
+
+            steps {
+                withMaven(maven : 'maven_3_8_1') {
+                    sh 'mvn clean compile'
+                }
             }
         }
   
