@@ -17,8 +17,6 @@
 
 	</properties>
 	<dependencies>
-		<!--  this is commnet <dependency> <groupId>org.springframework</groupId> <artifactId>spring-webmvc</artifactId> 
-			<version>${spring.version}</version> </dependency> -->
 
 		<dependency>
 			<groupId>javax.servlet</groupId>
