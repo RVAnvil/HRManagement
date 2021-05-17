@@ -15,9 +15,9 @@ pipeline{
                 bat 'mvn clean install' 
             }
         }
-      stage('SonarQube analysis') {
-    withSonarQubeEnv() { // Will pick the global server connection you have configured
-      sh './gradlew sonarqube'
+     stage('SonarQube analysis') {
+    withSonarQubeEnv('sonar-8') { // You can override the credential to be used
+      sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
     }
   }
         
