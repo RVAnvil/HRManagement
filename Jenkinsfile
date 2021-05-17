@@ -19,10 +19,10 @@ pipeline{
         
         stage('SonarQube analysis') {
             steps{
-    withSonarQubeEnv('sonar-8') { // You can override the credential to be used
-      bat 'mvn sonar:sonar '
-    }
-  }
+                withSonarQubeEnv('sonar-8') { 
+                    bat 'mvn sonar:sonar '
+                    }
+             }
         }     
     }
 }
