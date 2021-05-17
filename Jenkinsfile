@@ -16,5 +16,11 @@ pipeline{
             }
         }
         
+        stage('SonarQube analysis') {
+    withSonarQubeEnv('sonar-8') { // You can override the credential to be used
+      bat 'mvn sonar:sonar '
+    }
+  }
+        
     }
 }
