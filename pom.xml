@@ -72,6 +72,9 @@
 		</dependency>
 
 	</dependencies>
+	
+<!-- 	adding comment -->
+	
 	<build>
 		<finalName>employeeManagement</finalName>
 		<plugins>
