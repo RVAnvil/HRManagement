@@ -2,6 +2,7 @@ pipeline{
     agent any
         tools {
         maven 'maven_3_8_1'
+      
         
     }
     stages{
@@ -17,10 +18,11 @@ pipeline{
         }
         
         stage('SonarQube analysis') {
+            steps{
     withSonarQubeEnv('sonar-8') { // You can override the credential to be used
       bat 'mvn sonar:sonar '
     }
   }
-        
+        }     
     }
 }
