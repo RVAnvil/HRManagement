@@ -16,11 +16,10 @@ pipeline{
             }
         }
       stage('SonarQube analysis') {
-        def scannerHome = tool 'SonarScanner 4.0';
-        withSonarQubeEnv('sonar-8') { // If you have configured more than one global server connection, you can specify its name
-        sh "${scannerHome}/bin/sonar-scanner"
+    withSonarQubeEnv() { // Will pick the global server connection you have configured
+      sh './gradlew sonarqube'
     }
-  }  
+  }
         
     }
 }
